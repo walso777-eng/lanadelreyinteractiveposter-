@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0e8d9;
+    color: #382e29;
+    font-family: "Cormorant Garamond", serif;
+    margin: 0;
+    padding: 30px;
+}
+
+.page-header {
+    text-align: center;
+    padding: 45px 20px 55px;
+}
+
+h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(65px, 9vw, 110px);
+    font-weight: 400;
+    margin: 10px 0 0;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 5px 0 15px;
+}
+
+.postcard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.postcard {
+    position: relative;
+    aspect-ratio: 4 / 6;
+    cursor: pointer;
+    perspective: 1000px;
+    outline: none;
+}
+
+.postcard:focus-visible {
+    outline: 2px solid #745944;
+    outline-offset: 5px;
+}
+
+.postcard-inner {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: 0.8s ease;
+}
+
+.postcard.flipped .postcard-inner {
+    transform: rotateY(180deg);
+}
+
+.postcard-front,
+.postcard-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1px solid #c9b9a1;
+    box-shadow: 3px 5px 12px rgba(65, 45, 30, 0.12);
+}
+
+.postcard-front {
+    padding: 20px;
+    background-color: white;
+}
+
+.front-location {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.postcard-back {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 20px;
+    transform: rotateY(180deg);
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .postcard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .postcard-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+    }
+
+    body {
+        padding: 12px;
+    }
+
+    .page-header {
+        padding: 30px 5px 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .postcard-inner {
+        transition: none;
+    }
+}

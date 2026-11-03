@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lana Del Rey - Born to Die Tour</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="page-header">
+        <h1>Lana Del Rey</h1>
+        <h2>Born to Die Tour</h2>
+    </header>
+
+    <main class="postcard-grid">
+        <article class="postcard" tabindex="0" role="button" aria-pressed="false">
+        <div class="postcard-inner">
+        <div class="postcard-front">
+        <p class="front-location">New York</p>
+        </div>
+        <div class="postcard-back">
+        <p>Postcard letter</p>
+        </div>
+        </div>
+        </article>
+
+        <article class="postcard" tabindex="0" role="button" aria-pressed="false">
+        <div class="postcard-inner">
+        <div class="postcard-front">
+        <p class="front-location">Manchester</p>
+        </div>
+        <div class="postcard-back">
+        <p>Postcard letter</p>
+        </div>
+        </div>
+        </article>
+
+        <article class="postcard" tabindex="0" role="button" aria-pressed="false">
+        <div class="postcard-inner">
+        <div class="postcard-front">
+        <p class="front-location">Paris</p>
+        </div>
+        <div class="postcard-back">
+        <p>Postcard letter</p>
+        </div>
+        </div>
+        </article>
+
+        <article class="postcard" tabindex="0" role="button" aria-pressed="false">
+        <div class="postcard-inner">
+        <div class="postcard-front">
+        <p class="front-location">Los Angeles</p>
+        </div>
+        <div class="postcard-back">
+        <p>Postcard letter</p>
+        </div>
+        </div>
+        </article>
+
+        <article class="postcard" tabindex="0" role="button" aria-pressed="false">
+        <div class="postcard-inner">
+        <div class="postcard-front">
+        <p class="front-location">Amsterdam</p>
+        </div>
+        <div class="postcard-back">
+        <p>Postcard letter</p>
+        </div>
+        </div>
+        </article>
+
+        <article class="postcard" tabindex="0" role="button" aria-pressed="false">
+        <div class="postcard-inner">
+        <div class="postcard-front">
+        <p class="front-location">Berlin</p>
+        </div>
+        <div class="postcard-back">
+        <p>Postcard letter</p>
+        </div>
+        </div>
+        </article>
+
+    </main>
+
+    <script>
+        document.querySelectorAll(".postcard").forEach(function(postcard) {
+            function flipPostcard() {
+                postcard.classList.toggle("flipped");
+
+                const isFlipped = postcard.classList.contains("flipped");
+                postcard.setAttribute("aria-pressed", isFlipped);
+            }
+
+            postcard.addEventListener("click", flipPostcard);
+
+            postcard.addEventListener("keydown", function(event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    flipPostcard();
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>
